@@ -1,5 +1,5 @@
-.static/
-.cargo_exchange_venv/
+static
+cargo_exchange_venv/
 /*.tgz
 db.sqlite3
 *.pyc
