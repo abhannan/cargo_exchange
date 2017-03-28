@@ -1,0 +1,70 @@
+{% extends "ace/base.html" %} {% load i18n %}
+
+<html>
+
+<body>
+
+    {% block title %} Dashboard - {{ block.super }} {% endblock title %} 
+    
+    {% block content %}
+
+    <h1 class="ext-dash-headline">Dashboard Latest Requests</h1>
+    <div class="table-responsive">
+        <table class="table table-hover" style="width: 50%">
+            <tr>
+                <td colspan="7" class="profile-table-head-ac">Aircraft Availability</td>
+            </tr>
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Aircraft Type</th>
+                <th>Flight Date</th>
+                <th>Max Payload</th>
+                <th>Max Pallets</th>
+            </tr>
+            {% for requests in aircraft_requests %}
+            <tr>
+                <td>{{ requests.from_airport }}</td>
+                <td>{{ requests.to_airport }}</td>
+                <td>{{ requests.get_aircraft_type_display }}</td>
+                <td>{{ requests.date_required }}</td>
+                <td>{{ requests.max_payload }}</td>
+                <td>{{ requests.max_pallets }}</td>
+                <td><a href="{% url 'aircraft_detail' pk=requests.pk %}">Detail</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover" style="width: 50%">
+            <tr>
+                <td colspan="11" class="profile-table-head-frt">Freight Availability</td>
+            </tr>
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Date Required</th>
+                <th>Max Payload</th>
+                <th>Cargo Type</th>
+                <th>Cargo Nature</th>
+
+            </tr>
+            {% for requests in freight_requests %}
+            <tr>
+                <td>{{ requests.from_airport }}</td>
+                <td>{{ requests.to_airport }}</td>
+                <td>{{ requests.date_required }}</td>
+                <td>{{ requests.max_payload }}</td>
+                <td>{{ requests.get_cargo_type_display }}</td>
+                <td>{{ requests.get_cargo_nature_display }}</td>
+                <td><a href="{% url 'freight_detail' pk=requests.pk %}">Detail</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock content %}
+
+</body>
+
+</html>

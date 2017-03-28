@@ -1,0 +1,25 @@
+{% extends "ace/base.html" %} 
+{% load i18n %} 
+{% load crispy_forms_tags %} 
+
+{% block title %} Homepage - {{ block.super }} 
+{% endblock title %} 
+
+
+{% block content %}
+
+<html>
+<header>
+
+</header>
+
+<body class="index-page">
+    <form method="post" action="." class="form-home-page">
+        <h2>Get started today!</h2>
+        {% csrf_token %} {{ form|crispy }}
+        <input type="submit" value="SIGN UP FOR FREE" class="btn btn-warning" />
+    </form>
+    {% endblock content %}
+</body>
+
+</html>

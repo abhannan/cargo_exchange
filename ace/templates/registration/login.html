@@ -1,0 +1,18 @@
+{% extends "ace/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="head-login-page">Please Login</h1>
+<form method="post" action="." class="col-xs-4">
+  {% csrf_token %} 
+  {{ form|crispy }}
+
+  <input type="submit" value="{% trans 'Log in' %}" />
+  <input type="hidden" name="next" value="/" />
+</form><br>
+<div>
+    <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+    <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+</div>
+{% endblock %}

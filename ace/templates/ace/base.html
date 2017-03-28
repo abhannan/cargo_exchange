@@ -1,0 +1,84 @@
+{% load staticfiles %}
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %} Air Cargo Exchange 
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    {{ form.media }}
+</head>
+
+<body>
+    <header class="header" role="banner">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li><a href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post Request <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'create_aircraft' %}">Aircraft Availability</a></li>
+                                <li><a href="{% url 'create_freight' %}">Freight Availability</a></li>
+                            </ul>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'dashboard_users' %}">Dashboard</a></li>
+                        {% else %}
+                        <li><a href="{% url 'dashboard_external' %}">Dashboard</a></li>
+                        {% endif %}
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logged In <span class="caret"></span>
+                    </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'auth_logout' %}">Log out</a></li>
+                                <li><a href="{% url 'auth_password_change' %}">Change Password</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{% url 'profile_list_view' %}">My Profile</a></li>
+                                <li><a href="">{{ user.email }}</a></li>
+                        </li>
+                            </ul>
+                        {% else %}
+                        <li class="dropdown-toggle"><a href="{% url 'auth_login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                    {% block header %} {% endblock header %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% block content %} {% endblock content %}
+
+    <div id="footer">
+        {% block footer %} {% endblock %}
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

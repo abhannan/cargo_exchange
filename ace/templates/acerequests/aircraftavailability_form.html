@@ -1,0 +1,17 @@
+{% extends "ace/base.html" %} {% load i18n %} {% load crispy_forms_tags %} 
+
+{% block title %} Aircraft - {{ block.super }} 
+{% endblock title %} 
+
+{% block content %}
+
+<body>
+
+    <form method="post" class="form-style-9">
+        {% csrf_token %} {{ form|crispy }}
+        <input type="submit" value="Submit" class="btn btn-warning" />
+    </form>
+
+</body>
+
+{% endblock content %}

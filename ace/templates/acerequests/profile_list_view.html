@@ -1,0 +1,135 @@
+{% extends "ace/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    List View - {{ block.super }}
+{% endblock title %}
+
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#">My Requests=</a>
+                </li>
+                <li>
+                    <a href="#">Edit My Requests</a>
+                </li>
+                <li>
+                    <a href="#">Update My Profile</a>
+                </li>
+                <li>
+                    <a href="#">Dasboard</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+              <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            Toggle Menu
+        </a>
+        </div>
+    <h3>Requests Posted By You</h3>
+    <div class="table-responsive">
+    <table class="table table-hover" style="width: 70%;">
+        <tr>
+        <td colspan="9" class="profile-table-head-ac">Aircraft Availability Requests</td>
+        </tr>
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Aircraft Type</th>
+            <th>Flight Date</th>
+            <th>Max Payload</th>
+            <th>Door Size</th>
+            <th>Max Pallets</th>
+            <th>Comments</th>
+            <th>Edit/Delete</th>
+        </tr>
+    {% for requests in user_aircraft_requests %}
+        <tr>
+            <td>{{ requests.from_airport }}</td>
+            <td>{{ requests.to_airport }}</td>
+            <td>{{ requests.get_aircraft_type_display }}</td>
+            <td>{{ requests.date_required }}</td>
+            <td>{{ requests.max_payload }}</td>
+            <td>{{ requests.door_size }}</td>
+            <td>{{ requests.max_pallets }}</td>
+            <td>{{ requests.comments }}</td>
+            <td>
+                <a href="{% url 'update_aircraft' pk=requests.pk %}">Edit |</a>
+                <a href="{% url 'delete_aircraft' pk=requests.pk %}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}    
+    </table>
+    </div>
+    
+    <div class="table-responsive">
+    <table class="table table-hover" style="width: 70%;">
+        <tr>
+        <td colspan="11" class="profile-table-head-frt">Freight Availability Requests</td>
+        </tr>
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Aircraft Type</th>
+            <th>Date Required</th>
+            <th>Max Payload</th>
+            <th>Max Volume</th>
+            <th>Cargo Type</th>
+            <th>Cargo Nature</th>
+            <th>Pallets</th>
+            <th>Comments</th>
+            <th>Edit/Delete</th>
+        </tr>
+    {% for requests in user_freight_requests %}
+        <tr>
+            <td>{{ requests.from_airport }}</td>
+            <td>{{ requests.to_airport }}</td>
+            <td>{{ requests.get_aircraft_type_display }}</td>
+            <td>{{ requests.date_required }}</td>
+            <td>{{ requests.max_payload }}</td>
+            <td>{{ requests.max_volume }}</td>
+            <td>{{ requests.get_cargo_type_display }}</td>
+            <td>{{ requests.get_cargo_nature_display }}</td>
+            <td>{{ requests.number_pallets }}</td>
+            <td>{{ requests.comments }}</td>
+            <td><a href="{% url 'update_freight' pk=requests.pk %}">Edit |</a>
+                <a href="{% url 'delete_freight' pk=requests.pk %}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}    
+    </table>
+    </div>
+    
+    
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
+  
+{% endblock content %}

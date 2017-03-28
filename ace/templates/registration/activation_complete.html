@@ -1,0 +1,16 @@
+{% extends "ace/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>{% trans "Your account is now activated." %}</h3>
+<p> <strong> But in order to continue, please update your profile </strong> </p>
+
+<form method="post" action="." class="col-xs-4">
+  {% csrf_token %}
+  {{ profile_form|crispy }}
+
+  <input type="submit" value="{% trans 'Submit' %}" />
+</form>
+
+{% endblock %}

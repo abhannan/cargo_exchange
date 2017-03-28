@@ -1,0 +1,39 @@
+{% extends "ace/base.html" %} {% load i18n %}
+
+<html>
+{% block title %} Dashboard - {{ block.super }} {% endblock title %} {% block content %}
+
+<body>
+    <h1 class="ext-dash-headline">Detail</h1>
+    <div class="table-responsive">
+        <table class="table table-hover" style="width: 70%;">
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Aircraft Type</th>
+                <th>Flight Date</th>
+                <th>Max Payload</th>
+                <th>Door Size</th>
+                <th>Max Pallets</th>
+                <th>Comments</th>
+            </tr>
+            <tr>
+                <td>{{ aircraft_detail.from_airport }}</td>
+                <td>{{ aircraft_detail.to_airport }}</td>
+                <td>{{ aircraft_detail.get_aircraft_type_display }}</td>
+                <td>{{ aircraft_detail.date_required }}</td>
+                <td>{{ aircraft_detail.max_payload }}</td>
+                <td>{{ aircraft_detail.door_size }}</td>
+                <td>{{ aircraft_detail.max_pallets }}</td>
+                <td>{{ aircraft_detail.comments }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {{ aircraft_detail.user.email }} {{ aircraft_detail.user.userprofile.country.name }} {{ aircraft_detail.user.userprofile.phone_number }} {% endblock content %}
+
+
+
+</body>
+
+</html>
