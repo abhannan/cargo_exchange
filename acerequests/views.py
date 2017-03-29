@@ -1,18 +1,22 @@
+from django import forms
 from django.contrib.auth import get_user_model
-from django.shortcuts import render, redirect, HttpResponse
-# from django.shortcuts import get_object_or_404
-from django.http import Http404, HttpResponseRedirect
+from django.contrib import messages
+from django.core.mail import EmailMessage
 from django.core.urlresolvers import reverse_lazy
+# from .decorators import user_is_request_poster
+from .forms import ContactForm
+from django.http import Http404, HttpResponseRedirect
 from .models import AircraftAvailability, FreightAvailability
-from django.contrib.auth.models import PermissionsMixin
+from django.template.loader import get_template
+from django.template import Context
+from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import (CreateView, 
 	UpdateView, 
 	DeleteView, 
 	ListView,
 	DetailView)
-from django import forms
 from datetimewidget.widgets import DateWidget
-# from django.contrib import messages
+# from django.shortcuts import get_object_or_404
 
 
 ### Forms ###
@@ -62,7 +66,6 @@ class FreightRequestForm(forms.ModelForm):
 			 'max_payload',
 			 'max_volume',			 
 			 'number_pallets',
-			 'number_pallets',
 			 'comments')
 		widgets = {'date_required': DateWidget(attrs={'id':"id_date_required"}, usel10n = True),
 					'from_airport': forms.TextInput(attrs={'placeholder': 'Type name or IATA code'}),
@@ -88,7 +91,7 @@ class FreightRequestForm(forms.ModelForm):
 
 ### Create ###
 
-class AircraftCreateView(PermissionsMixin, CreateView):
+class AircraftCreateView(CreateView):
 	form_class = AircraftRequestForm
 	model = AircraftAvailability
 	
@@ -98,11 +101,11 @@ class AircraftCreateView(PermissionsMixin, CreateView):
 			aircraft_request = form.save(commit=False)
 			aircraft_request.user = request.user
 			aircraft_request.save()
-			return redirect('list')
+			return redirect('profile_list_view')
 		else:
 			return self.form_invalid(form)
 
-class FreightCreateView(PermissionsMixin, CreateView):
+class FreightCreateView(CreateView):
 	form_class = FreightRequestForm
 	model = FreightAvailability
 	
@@ -112,13 +115,12 @@ class FreightCreateView(PermissionsMixin, CreateView):
 			freight_request = form.save(commit=False)
 			freight_request.user = request.user
 			freight_request.save()
-			return redirect('list')
+			return redirect('profile_list_view')
 		else:
 			return self.form_invalid(form)
 
 ### Edit ###
-
-class AircraftUpdateView(PermissionsMixin, UpdateView):
+class AircraftUpdateView(UpdateView):
 		model = AircraftAvailability
 		fields = ('from_airport',
 			 'to_airport',
@@ -130,7 +132,7 @@ class AircraftUpdateView(PermissionsMixin, UpdateView):
 			 'max_pallets', 
 			 'comments')
 
-class FreightUpdateView(PermissionsMixin, UpdateView):
+class FreightUpdateView(UpdateView):
 		model = FreightAvailability
 		fields = ('from_airport',
 			 'to_airport',
@@ -145,7 +147,7 @@ class FreightUpdateView(PermissionsMixin, UpdateView):
 
 ### Delete ###
 
-class AircraftDeleteView(PermissionsMixin, DeleteView):
+class AircraftDeleteView(DeleteView):
 	model = AircraftAvailability
 	success_url = reverse_lazy("profile_list_view")
 
@@ -155,7 +157,7 @@ class AircraftDeleteView(PermissionsMixin, DeleteView):
 		self.object.delete()
 		return HttpResponseRedirect(success_url)
 
-class FreightDeleteView(PermissionsMixin, DeleteView):
+class FreightDeleteView(DeleteView):
 	model = FreightAvailability
 	success_url = reverse_lazy("profile_list_view")
 
@@ -201,17 +203,89 @@ def dashboard_view_users(request):
 
 def aircraft_detail_view(request, pk):
 	aircraft_detail = AircraftAvailability.objects.get(pk=pk)
-	# user = get_user_model()
-	# user_info = user.objects.get(request.us)
-	return render(request, 'acerequests/dashboard_detail.html', {'aircraft_detail': aircraft_detail})
+	form_class = ContactForm
+	if request.method == 'POST':
+		form = form_class(data=request.POST)
+		if form.is_valid():
+			name = request.POST.get(
+			'name'
+			, '')
+			email = request.POST.get(
+			'email'
+			, '')
+			phone = request.POST.get(
+			'phone'
+			, '')
+			company_name = request.POST.get(
+			'company_name'
+			, '')
+			country = request.POST.get(
+			'country'
+			, '')
+			content = request.POST.get('content', '')
+
+			# Email the profile with the 
+			# contact information
+			template = get_template('acerequests/contact_user.txt')
+			context = Context({
+			'name': name,
+			'email': email,
+			'phone': phone,
+			'company_name': company_name,
+			'country': country,
+			'content': content,
+			})
+			content = template.render(context)
+
+			email = EmailMessage(
+			"New contact form submission",
+			content,
+			"Air Cargo Exchange" +'',
+			['youremail@gmail.com'],
+			headers = {'Reply-To': email }
+			)
+			email.send()
+			return redirect('dashboard_users')
+	return render(request, 'acerequests/dashboard_aircraft_detail.html', {'aircraft_detail': aircraft_detail, 'form': form_class})
 
 def freight_detail_view(request, pk):
 	freight_detail = FreightAvailability.objects.get(pk=pk)
-	return render(request, 'acerequests/dashboard_detail.html', {'freight_detail': freight_detail})
+	form_class = ContactForm
+	if request.method == 'POST':
+		form = form_class(data=request.POST)
+		if form.is_valid():
+			name = request.POST.get(
+			'name'
+			, '')
+			email = request.POST.get(
+			'email'
+			, '')
+			content = request.POST.get('content', '')
 
-class DashboardListView(ListView):
-	model = AircraftAvailability
-	context_object_name = "aircraft_requests"
+			# Email the profile with the 
+			# contact information
+			template = get_template('acerequests/contact_user.txt')
+			context = Context({
+			'name': name,
+			'email': email,
+			'content': content,
+			})
+			content = template.render(context)
+
+			email = EmailMessage(
+			"New contact form submission",
+			content,
+			"Your website" +'',
+			['youremail@gmail.com'],
+			headers = {'Reply-To': email }
+			)
+			email.send()
+			return redirect('dashboard_users')
+	return render(request, 'acerequests/dashboard_freight_detail.html', {'freight_detail': freight_detail, 'form': form_class})
+
+
+
+
 
 
 

@@ -1,10 +1,9 @@
-{% extends "ace/base.html" %} {% load i18n %}
+{% extends "ace/base.html" %} {% load i18n %} {% load crispy_forms_tags %}
 
 <html>
 {% block title %} Dashboard - {{ block.super }} {% endblock title %} {% block content %}
 
 <body>
-    <h1 class="ext-dash-headline">Detail</h1>
     <div class="table-responsive">
         <table class="table table-hover" style="width: 70%;">
             <tr>
@@ -29,11 +28,14 @@
             </tr>
         </table>
     </div>
-
-    {{ aircraft_detail.user.email }} {{ aircraft_detail.user.userprofile.country.name }} {{ aircraft_detail.user.userprofile.phone_number }} {% endblock content %}
-
-
-
+    <h4>Contact Requester:</h4>
+    <form method="post" class="form-contact">
+    {{ form|crispy }}
+        {% csrf_token %}
+    <input type="submit" value="Submit" class="btn btn-warning" />
+    </form>
+    
+    {% endblock content %}
 </body>
 
 </html>
