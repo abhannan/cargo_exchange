@@ -70,7 +70,7 @@ class UserProfile(models.Model):
     ('Airline', 'Airline'),
     ('Broker', 'Broker / Freight Forwarder'),)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    category = models.CharField(choices=CLIENT_CATEGORY, default='Airline', max_length=26)
+    category = models.CharField(choices=CLIENT_CATEGORY, max_length=26)
     company_name = models.CharField(max_length=500)
     contact_person = models.CharField(max_length=255)
     phone_number = PhoneNumberField()

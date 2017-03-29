@@ -3,7 +3,6 @@ from .models import AircraftAvailability, FreightAvailability
 
 def aircraft_permission_required(function):
     def wrap(request, *args, **kwargs):
-    	# freight_request = FreightAvailability.objects.get(pk=kwargs['pk'])
     	aircraft_request = AircraftAvailability.objects.get(pk=kwargs['pk'])
     	if aircraft_request.user == request.user:
     		return function(request, *args, **kwargs)

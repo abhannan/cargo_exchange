@@ -11,8 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-    {{ form.media }}
+        {{ form.media }}
 </head>
 
 <body>
@@ -52,13 +53,14 @@
                         {% if user.is_authenticated %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logged In <span class="caret"></span>
-                    </a>
+                            </a>
                             <ul class="dropdown-menu">
+                                <li><a href="{% url 'profile_list_view' %}">Your Requests</a></li>
                                 <li><a href="{% url 'auth_logout' %}">Log out</a></li>
                                 <li><a href="{% url 'auth_password_change' %}">Change Password</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="{% url 'profile_list_view' %}">My Profile</a></li>
-                                <li><a href="">{{ user.email }}</a></li>
+                                <li><a>Signed in as:</a></li>
+                                <li><a href="{% url 'profile_update' %}">{{ user.email }}</a></li>
                         </li>
                             </ul>
                         {% else %}
@@ -73,9 +75,6 @@
     </header>
     {% block content %} {% endblock content %}
 
-    <div id="footer">
-        {% block footer %} {% endblock %}
-    </div>
 </body>
 <footer>
 

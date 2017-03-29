@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 # from .decorators import user_is_request_poster
 from .forms import ContactForm
 from django.http import Http404, HttpResponseRedirect
+from .mixins import AirportDataMixin
 from .models import AircraftAvailability, FreightAvailability
 from django.template.loader import get_template
 from django.template import Context
@@ -91,7 +92,7 @@ class FreightRequestForm(forms.ModelForm):
 
 ### Create ###
 
-class AircraftCreateView(CreateView):
+class AircraftCreateView(AirportDataMixin, CreateView):
 	form_class = AircraftRequestForm
 	model = AircraftAvailability
 	
@@ -105,7 +106,7 @@ class AircraftCreateView(CreateView):
 		else:
 			return self.form_invalid(form)
 
-class FreightCreateView(CreateView):
+class FreightCreateView(AirportDataMixin, CreateView):
 	form_class = FreightRequestForm
 	model = FreightAvailability
 	
@@ -120,7 +121,7 @@ class FreightCreateView(CreateView):
 			return self.form_invalid(form)
 
 ### Edit ###
-class AircraftUpdateView(UpdateView):
+class AircraftUpdateView(AirportDataMixin, UpdateView):
 		model = AircraftAvailability
 		fields = ('from_airport',
 			 'to_airport',
@@ -132,7 +133,7 @@ class AircraftUpdateView(UpdateView):
 			 'max_pallets', 
 			 'comments')
 
-class FreightUpdateView(UpdateView):
+class FreightUpdateView(AirportDataMixin, UpdateView):
 		model = FreightAvailability
 		fields = ('from_airport',
 			 'to_airport',

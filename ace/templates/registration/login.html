@@ -9,7 +9,7 @@
   {{ form|crispy }}
 
   <input type="submit" value="{% trans 'Log in' %}" />
-  <input type="hidden" name="next" value="/" />
+  <input type="hidden" name="next" value="{% url 'profile_list_view' %}" />
 </form><br>
 <div>
     <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>

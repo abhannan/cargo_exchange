@@ -28,16 +28,16 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#">My Requests=</a>
+                    <a href="">My Requests</a>
                 </li>
                 <li>
                     <a href="#">Edit My Requests</a>
                 </li>
                 <li>
-                    <a href="#">Update My Profile</a>
+                    <a href="{% url 'profile_update' %}">Update My Profile</a>
                 </li>
                 <li>
-                    <a href="#">Dasboard</a>
+                    <a href="{% url 'dashboard_users' %}">Dasboard</a>
                 </li>
             </ul>
         </div>

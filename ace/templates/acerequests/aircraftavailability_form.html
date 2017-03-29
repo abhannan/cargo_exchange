@@ -3,6 +3,28 @@
 {% block title %} Aircraft - {{ block.super }} 
 {% endblock title %} 
 
+{% block header %}
+        <script>
+         $(function() {
+            var data = JSON.parse('{{ jsonData|safe }}');
+            autoComplete = [];
+                for (var i = 0, len = data.length; i < len; i++) {
+                    autoComplete.push(data[i].iata + ", " + data[i].name);
+                }
+                $( "#id_from_airport" ).autocomplete({
+                    source: autoComplete,
+                    minLength: 3
+                });
+                $( "#id_to_airport" ).autocomplete({
+                    source: autoComplete,
+                    minLength: 3
+                });
+         });
+        </script>
+
+{{ block.super }}
+{% endblock header %}
+
 {% block content %}
 
 <body>
