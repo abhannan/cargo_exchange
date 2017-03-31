@@ -1,6 +1,7 @@
 from django import forms
 from django_countries import countries
 
+
 class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     email = forms.EmailField(required=True)

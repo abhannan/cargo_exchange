@@ -27,10 +27,11 @@
 {% block content %}
 
 <body>
-
+    <h4>Create a new Freight Availability Request</h4>
+    <h4>Time critical / Hazardous / Regular?</h4>
     <form method="post" class="form-style-9">
         {% csrf_token %} {{ form|crispy }}
-        <input type="submit" value="Submit" class="btn btn-warning" />
+        <input type="submit" value="Post to the community" class="btn btn-warning" />
     </form>
 
 </body>

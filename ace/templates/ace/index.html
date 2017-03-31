@@ -18,6 +18,7 @@
         <h2>Get started today!</h2>
         {% csrf_token %} {{ form|crispy }}
         <input type="submit" value="SIGN UP FOR FREE" class="btn btn-warning" />
+        <p>By submitting this form, you agree to our <a class="terms-index" href="{% url 'terms' %}">Terms and Conditions</a></p>
     </form>
     {% endblock content %}
 </body>

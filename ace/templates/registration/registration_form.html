@@ -8,5 +8,6 @@
   {{ form|crispy }}
 
   <input type="submit" value="Submit" />
+    <p>By submitting this form, you agree to our <a href="{% url 'terms' %}">Terms and Conditions</a></p>
 </form>
 {% endblock %}
