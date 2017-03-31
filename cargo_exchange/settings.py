@@ -145,12 +145,11 @@ REGISTRATION_AUTO_LOGIN = True
 # Email settings for emails to Users
 ACCOUNT_ACTIVATION_DAYS = 7
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'testing@example.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aircargoexchange@gmail.com'
+EMAIL_HOST_PASSWORD = 'makkah@786'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 
 # Crispy forms settings
 CRISPY_TEMPLATE_PACK= 'bootstrap3'

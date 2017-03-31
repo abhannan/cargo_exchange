@@ -6,6 +6,7 @@ django-crispy-forms==1.6.1
 django-datetime-widget==0.9.3
 django-phonenumber-field==1.1.0
 django-registration-redux==1.4
+gunicorn==19.7.1
 packaging==16.8
 phonenumberslite==8.3.2
 psycopg2==2.7

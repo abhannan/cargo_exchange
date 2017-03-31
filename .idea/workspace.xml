@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bea00a05-50f3-4f5d-a3b9-16b1e6a197fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/admin.py" afterPath="$PROJECT_DIR$/ace/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/forms.py" afterPath="$PROJECT_DIR$/ace/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/ace/base.html" afterPath="$PROJECT_DIR$/ace/templates/ace/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/ace/index.html" afterPath="$PROJECT_DIR$/ace/templates/ace/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/acerequests/aircraftavailability_form.html" afterPath="$PROJECT_DIR$/ace/templates/acerequests/aircraftavailability_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/acerequests/dashboard_external.html" afterPath="$PROJECT_DIR$/ace/templates/acerequests/dashboard_external.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/acerequests/freightavailability_form.html" afterPath="$PROJECT_DIR$/ace/templates/acerequests/freightavailability_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/templates/registration/registration_form.html" afterPath="$PROJECT_DIR$/ace/templates/registration/registration_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/urls.py" afterPath="$PROJECT_DIR$/ace/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ace/views.py" afterPath="$PROJECT_DIR$/ace/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acerequests/decorators.py" afterPath="$PROJECT_DIR$/acerequests/decorators.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acerequests/forms.py" afterPath="$PROJECT_DIR$/acerequests/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acerequests/mixins.py" afterPath="$PROJECT_DIR$/acerequests/mixins.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acerequests/views.py" afterPath="$PROJECT_DIR$/acerequests/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cargo_exchange/settings.py" afterPath="$PROJECT_DIR$/cargo_exchange/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,6 +30,7 @@
         <option value="$PROJECT_DIR$/ace/urls.py" />
         <option value="$PROJECT_DIR$/ace/views.py" />
         <option value="$PROJECT_DIR$/acerequests/decorators.py" />
+        <option value="$PROJECT_DIR$/cargo_exchange/settings.py" />
       </list>
     </option>
   </component>
@@ -118,6 +107,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cargo_exchange" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cargo_exchange" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cargo_exchange" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cargo_exchange" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -232,7 +261,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -347,6 +376,30 @@
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cargo_exchange/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ace/templates/registration/activation_email_subject.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ace/templates/registration/activation_email.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

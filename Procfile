@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath aircargoexchange aircargoexchange.wsgi --log-file -
