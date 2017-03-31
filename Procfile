@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath cargo_exchange cargo_exchange.wsgi --log-file -
+web: gunicorn --pythonpath cargo_exchange cargo_exchange.deploy --log-file -
