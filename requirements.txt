@@ -1,4 +1,4 @@
-appdirs==1.4.2
+appdirs==1.4.3
 Babel==2.3.4
 Django==1.10.5
 django-countries==4.1
