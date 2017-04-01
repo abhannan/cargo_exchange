@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^ace/', include('acerequests.urls')),
 ]
 # Following is to check if settings is on Debug
-if settings.DEBUG:
-	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# if settings.DEBUG:
+# 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
