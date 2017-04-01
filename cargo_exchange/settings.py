@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_message = "Set the {} env variable".format(var_name)
+        if DEBUG:
+            warnings.warn(error_message)
+        else:
+            raise ImproperlyConfigured(error_message)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -137,7 +147,7 @@ STATICFILES_DIRS = [
 ]
 # MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # To create a new User type by using email as username
 AUTH_USER_MODEL = 'ace.User'
