@@ -212,14 +212,14 @@ h4 {
 .terms-index {
     color: white;
 }    
-.navbar-bottom {
+.navbar-fixed-bottom {
     background-color: #2C3E50;
     color: white;
     text-align: center;
     clear: both;
     bottom: 0;
 }
-.index-page .navbar-bottom  {
+.index-page .navbar-fixed-bottom  {
     display: none;
 }
 .container {

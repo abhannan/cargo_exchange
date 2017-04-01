@@ -3,11 +3,22 @@
     background-color: #ECF0F1;
     font-family: "Montserrat", "Roboto", "Helvetica" serif;
 }
-    .navbar-bottom {
+.navbar-fixed-bottom {
     background-color: #2C3E50;
     color: white;
     text-align: center;
-}
+    clear: both;
+    bottom: 0;
+    }
+.index-page .navbar-fixed-bottom  {
+    display: none;
+    }
+.navbar-fixed-top .navbar-nav .open .dropdown-menu>li>a, .navbar-fixed-top .navbar-nav .open .dropdown-menu {
+    color: white;
+    }
+.navbar-fixed-top .navbar-nav .open .dropdown-menu>li>a:hover, .navbar-fixed-top .navbar-nav .open .dropdown-menu:hover {
+    color: #9AACB8;
+    }
     .ui-autocomplete {
     position: absolute;
     top: 100%;
