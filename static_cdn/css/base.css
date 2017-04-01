@@ -1,0 +1,334 @@
+
+body {
+    background-color: #ECF0F1;
+    font-family: "Montserrat", "Roboto", serif;
+    padding-top: 70px;
+}
+
+.container-fluid {
+    background-color: #2C3E50;
+    font-size: 1.2em;
+}
+
+.navbar {
+    background-image: none;
+}
+
+.navbar-fixed-top {
+    border-color: #454d56;
+}
+
+.navbar-fixed-top .navbar-nav>li>a:hover,
+.navbar-fixed-top .navbar-nav>li>a:focus {
+    color: #9AACB8;
+}
+
+.navbar-fixed-top .navbar-nav>li>a {
+    color: white;
+}
+
+.dropdown-toggle {
+    background-color: black;
+}
+
+.form-home-page {
+    background-color: #2980B9;
+    float: right;
+    padding: 20px 20px 20px;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+
+.help-block {
+    color: black;
+    font-size: 1.2em;
+}
+
+.index-page {
+    background: url(../images/hero-image.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    position: relative;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h4 {
+    text-align: center;
+}
+
+.btn-warning {
+    color: black;
+    font-size: 1.2em;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.form-style-9 {
+    max-width: 500px;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
+    position: relative;
+}
+
+#id_comments {
+    height: 60px;
+}
+
+.next,
+.prev {
+    background-color: #0062A8;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+.form-contact {
+    max-width: 500px;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 0px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
+    position: relative;
+}
+
+.navbar-fixed-top .navbar-brand {
+  padding: 5px 25px;
+    color: white;
+    width: 150px;
+}
+.navbar-fixed-top .navbar-brand:hover {
+    color: #9AACB8;
+}
+.terms-index {
+    color: white;
+}    
+.navbar-bottom {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    clear: both;
+    bottom: 0;
+}
+.index-page .navbar-bottom  {
+    display: none;
+}
+.container {
+        margin-top: 10px;
+    }
+ .ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;   
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    }
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+    }
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+    }
+.profile-table-head-ac {
+        background-color: #F492B0;
+        height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .profile-table-head-frt {
+        background-color: #2C9676;
+        height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .table {
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    th {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table-hover {
+        width: 60%;
+    }
+    tr td:last-child {
+        width: 1%;
+        white-space: nowrap;
+    }
+    .btn-danger {
+        margin-left: 300px;
+        margin-right: auto;
+    }
+    .cancel-btn {
+        margin-left: 30px;
+        margin-right: auto;
+    }
+    .ext-dash-headline {
+        color: black;
+        text-align: center;
+        font-size: 35px;
+    }
+    .head-login-page {
+        color: black;
+        text-align: left;
+        margin: 15px;
+        font-size: 30px;
+    }

@@ -1,0 +1,124 @@
+@media only screen and (max-width: 768px) {
+    .navbar-bottom {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+}
+    .ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;   
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    }
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+    }
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+    }
+.container-fluid {
+    background-color: #2C3E50;
+    font-size: 1.2em;
+}
+
+.navbar {
+    background-image: none;
+}
+
+.navbar-fixed-top {
+    border-color: #454d56;
+}
+
+.navbar-fixed-top .navbar-nav>li>a:hover,
+.navbar-fixed-top .navbar-nav>li>a:focus {
+    color: #9AACB8;
+}
+
+.navbar-fixed-top .navbar-nav>li>a {
+    color: white;
+}
+
+.dropdown-toggle {
+    background-color: black;
+}
+
+.profile-table-head-ac {
+        background-color: #F492B0;
+        height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+        font-size: 1.5em;
+    }
+.profile-table-head-frt {
+    background-color: #2C9676;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    }
+    .col-xs-4 {
+        width: 300px;
+    }
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+    #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+    }
