@@ -1,4 +1,9 @@
 @media only screen and (max-width: 768px) {
+    body {
+    background-color: #ECF0F1;
+    font-family: "Montserrat", "Roboto", serif;
+    padding-top: 70px;
+}
     .navbar-bottom {
     background-color: #2C3E50;
     color: white;
