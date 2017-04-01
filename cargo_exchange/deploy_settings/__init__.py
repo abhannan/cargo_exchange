@@ -8,4 +8,4 @@ ALLOWED_HOSTS = [
 	'.herokuapp.com',
 ]
 
-SECRET_KEY = get_env_variabel("SECRET_KEY")
+SECRET_KEY = get_env_variable("SECRET_KEY")
