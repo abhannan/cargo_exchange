@@ -1,0 +1,34 @@
+{% load countries %}
+
+Someone is interested in your following post at Air Cargo Exchange:
+
+------------------
+Origin: {{ freight_detail.from_airport }}
+Destination: {{ freight_detail.to_airport }}
+Aircraft Type: {{ freight_detail.get_aircraft_type_display }}
+Date Available: {{ freight_detail.date_required }}
+Max Payload:{{ freight_detail.max_payload }}
+Cargo Type: {{ freight_detail.cargo_type }}
+------------------
+
+Contact Name:
+{{ name }}
+
+Email:
+{{ email }}
+
+Phone:
+{{ phone }}
+
+Company Name:
+{{ company_name }}
+
+Country:
+{{ country }}
+
+Content:
+{{ content|safe|striptags }}
+
+Thank you,
+
+Air Cargo Exchnage Team

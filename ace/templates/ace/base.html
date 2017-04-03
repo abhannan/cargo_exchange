@@ -45,6 +45,7 @@
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile_list_view' %}">Your Requests</a></li>
                         <li><a href="{% url 'dashboard_users' %}">Dashboard</a></li>
                         {% else %}
                         <li><a href="{% url 'dashboard_external' %}">Dashboard</a></li>

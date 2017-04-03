@@ -17,6 +17,8 @@ from django.views.generic import (CreateView,
                                   ListView,
                                   DetailView)
 from datetimewidget.widgets import DateWidget
+from django.utils.translation import ugettext_lazy
+
 
 ### Forms ###
 class AircraftRequestForm(forms.ModelForm):
@@ -220,6 +222,8 @@ def dashboard_view_users(request):
 
 def aircraft_detail_view(request, pk):
     aircraft_detail = AircraftAvailability.objects.get(pk=pk)
+    request_poster = aircraft_detail.user
+    email_request_poster = request_poster.email
     form_class = ContactForm
     if request.method == 'POST':
         form = form_class(data=request.POST)
@@ -243,8 +247,9 @@ def aircraft_detail_view(request, pk):
 
             # Email the profile with the
             # contact information
-            template = get_template('acerequests/contact_user.txt')
+            template = get_template('acerequests/contact_email_aircraft.txt')
             context = Context({
+                'aircraft_detail': aircraft_detail,
                 'name': name,
                 'email': email,
                 'phone': phone,
@@ -255,10 +260,10 @@ def aircraft_detail_view(request, pk):
             content = template.render(context)
 
             email = EmailMessage(
-                "New contact form submission",
+                "Someone is interested in your post",
                 content,
                 "Air Cargo Exchange" + '',
-                ['youremail@gmail.com'],
+                [email_request_poster],
                 headers={'Reply-To': email}
             )
             email.send()
@@ -269,6 +274,8 @@ def aircraft_detail_view(request, pk):
 
 def freight_detail_view(request, pk):
     freight_detail = FreightAvailability.objects.get(pk=pk)
+    request_poster = freight_detail.user
+    email_request_poster = request_poster.email
     form_class = ContactForm
     if request.method == 'POST':
         form = form_class(data=request.POST)
@@ -279,23 +286,36 @@ def freight_detail_view(request, pk):
             email = request.POST.get(
                 'email'
                 , '')
+            phone = request.POST.get(
+                'phone'
+                , '')
+            company_name = request.POST.get(
+                'company_name'
+                , '')
+            country = request.POST.get(
+                'country'
+                , '')
             content = request.POST.get('content', '')
 
             # Email the profile with the
             # contact information
-            template = get_template('acerequests/contact_user.txt')
+            template = get_template('acerequests/contact_email_freight.txt')
             context = Context({
+                'freight_detail': freight_detail,
                 'name': name,
                 'email': email,
+                'phone': phone,
+                'company_name': company_name,
+                'country': country,
                 'content': content,
             })
             content = template.render(context)
 
             email = EmailMessage(
-                "New contact form submission",
+                "Someone is interested in your post",
                 content,
-                "Your website" + '',
-                ['youremail@gmail.com'],
+                "Air Cargo Exchange" + '',
+                [email_request_poster],
                 headers={'Reply-To': email}
             )
             email.send()
