@@ -48,3 +48,25 @@ def update_profile(request):
 def terms_of_service(request):
 
     return render(request, 'ace/terms_of_service.html')
+
+
+def about_us(request):
+    
+    return render(request, 'ace/about.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

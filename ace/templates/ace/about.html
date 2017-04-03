@@ -1,0 +1,92 @@
+{% extends "ace/base.html" %} 
+{% load i18n %} 
+{% load crispy_forms_tags %} 
+
+{% block title %} About - {{ block.super }} 
+{% endblock title %} 
+
+
+{% block content %}
+
+<html lang="en">
+
+<head>
+
+</head>
+
+<body class="about-page">
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Our Mission:</h1>
+                    <h2 class="tagline">Improve air cargo by connecting professionals</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <p>Air Cargo Exchange is a service dedicated to air cargo industry. Our aim is to connect the community of air cargo professionals where they can share their flights, freight needs and ideas. </p>
+                <p>It connects airlines and freight brokers to share:
+                </p>
+                <ul>
+                    <li class="li-about">Empty charter legs</li>
+                    <li class="li-about">Flight schedules and space available</li>
+                    <li class="li-about">Freight quotes</li>
+                </ul>
+                <p>It takes lots of effort to to search through random companies by phone, internet or emails. With Air Cargo Exchange everything you need is in one network. So:</p>
+                <p>With Air Cargo Exchange there is always opportunity to maximize revenue and save costs.
+                </p>
+        
+            </div>
+            <div class="col-sm-4">
+                <p>
+                    <a class="btn btn-default btn-lg" href="{% url 'registration_register' %}">Sign up for FREE &raquo;</a>
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="../../../static/images/uld-1.jpeg" alt="ULD Loading">
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="../../../static/images/uld-2.png" alt="">
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="../../../static/images/uld-3.jpeg" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+    {% endblock content %}

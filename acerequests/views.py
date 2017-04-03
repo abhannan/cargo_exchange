@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import EmailMessage
 from django.core.urlresolvers import reverse_lazy
 from .forms import ContactForm
@@ -43,7 +44,7 @@ class AircraftRequestForm(forms.ModelForm):
             'from_airport': 'Origin Airport *',
             'to_airport': 'Destination Airport *',
             'aircraft_type': 'Aircraft Type *',
-            'date_required': 'Date Required *',
+            'date_required': 'Date Available *',
             'max_payload': 'Max Payload (in KGs)',
             'max_volume': 'Max Volume',
             'door_size': 'Door Size',
@@ -101,6 +102,7 @@ class AircraftCreateView(AirportDataMixin, CreateView):
             aircraft_request = form.save(commit=False)
             aircraft_request.user = request.user
             aircraft_request.save()
+            messages.success(request, 'Your request has been added successfully!')
             return redirect('profile_list_view')
         else:
             return self.form_invalid(form)
@@ -116,14 +118,16 @@ class FreightCreateView(AirportDataMixin, CreateView):
             freight_request = form.save(commit=False)
             freight_request.user = request.user
             freight_request.save()
+            messages.success(request, 'Your request has been added successfully!')
             return redirect('profile_list_view')
         else:
             return self.form_invalid(form)
 
 
 ### Edit ###
-class AircraftUpdateView(AirportDataMixin, UpdateView):
+class AircraftUpdateView(AirportDataMixin, SuccessMessageMixin, UpdateView):
     model = AircraftAvailability
+    success_message = 'Your request has been updates successfully!'
     fields = ('from_airport',
               'to_airport',
               'aircraft_type',
@@ -135,8 +139,9 @@ class AircraftUpdateView(AirportDataMixin, UpdateView):
               'comments')
 
 
-class FreightUpdateView(AirportDataMixin, UpdateView):
+class FreightUpdateView(AirportDataMixin, SuccessMessageMixin, UpdateView):
     model = FreightAvailability
+    success_message = 'Your request has been updates successfully!'
     fields = ('from_airport',
               'to_airport',
               'aircraft_type',
@@ -153,22 +158,26 @@ class FreightUpdateView(AirportDataMixin, UpdateView):
 
 class AircraftDeleteView(DeleteView):
     model = AircraftAvailability
+    success_message = 'Your request has been deleted successfully!'
     success_url = reverse_lazy("profile_list_view")
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         success_url = self.success_url
+        messages.success(request, 'Your request has been deleted successfully!')
         self.object.delete()
         return HttpResponseRedirect(success_url)
 
 
 class FreightDeleteView(DeleteView):
     model = FreightAvailability
+    success_message = 'Your request has been deleted successfully!'
     success_url = reverse_lazy("profile_list_view")
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         success_url = self.success_url
+        messages.success(request, 'Your request has been deleted successfully!')
         self.object.delete()
         return HttpResponseRedirect(success_url)
 

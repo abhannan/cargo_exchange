@@ -332,3 +332,40 @@ h4 {
         margin: 15px;
         font-size: 30px;
     }
+.business-header {
+    height: 300px;
+    background: url(../images/about-image.png) center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    text-decoration: none;
+}
+.tagline {
+    color: white;
+    text-align: left;
+        text-shadow: 0 0 10px #000;
+
+}
+.about-page {
+    padding-top: 35px;
+}
+li {
+    display: block;
+}
+
+.li-about:before {
+    content: "\e080";
+    font-family: 'Glyphicons Halflings';
+    font-size: 9px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #2C3E50;
+}
+.img-center {
+    margin: 0 auto;
+}
