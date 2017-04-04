@@ -1,0 +1,63 @@
+{% extends "ace/base.html" %} 
+{% load i18n %} 
+{% load crispy_forms_tags %} 
+
+{% block title %} About - {{ block.super }} 
+{% endblock title %} 
+
+
+{% block content %}
+
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <form class="contact-form" method="post">
+                    <h4>Feel free to send us message or suggestions</h4>
+                    {{ form|crispy }}
+                    {% csrf_token %}
+                        <input type="submit" value="Send" class="btn btn-warning" />
+                </form>
+        
+            </div>
+            <div class="col-sm-4">
+                    <h1>Address:</h1>
+                <address>
+                    7150 Torbram Road<br>
+                    ON L4T 4B5<br>
+                    Mississauga<br>
+                    Canada
+                </address>
+                <p><strong>Tel:</strong> +1 647 984 3763<br>
+                <strong>Email:</strong> aircargoexchange@gmail.com
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+    {% endblock content %}

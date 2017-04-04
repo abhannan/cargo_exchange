@@ -1,0 +1,25 @@
+{% load countries %}
+
+Someone has sent following message:
+
+Contact Name:
+{{ name }}
+
+Company Name:
+{{ company_name }}
+
+Email:
+{{ email }}
+
+Phone:
+{{ phone }}
+
+Country:
+{{ country }}
+
+Message:
+{{ message|safe|striptags }}
+
+Thank you,
+
+Air Cargo Exchnage Team

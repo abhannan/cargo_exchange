@@ -266,6 +266,7 @@ def aircraft_detail_view(request, pk):
                 [email_request_poster],
                 headers={'Reply-To': email}
             )
+            messages.success(request, 'Your details has been sent to the user posted this request')
             email.send()
             return redirect('dashboard_users')
     return render(request, 'acerequests/dashboard_aircraft_detail.html',
@@ -319,6 +320,7 @@ def freight_detail_view(request, pk):
                 headers={'Reply-To': email}
             )
             email.send()
+            messages.success(request, 'Your details has been sent to the user posted this request')
             return redirect('dashboard_users')
     return render(request, 'acerequests/dashboard_freight_detail.html',
                   {'freight_detail': freight_detail, 'form': form_class})

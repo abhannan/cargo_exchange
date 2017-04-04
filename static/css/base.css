@@ -3,13 +3,21 @@ body {
     background-color: #ECF0F1;
     font-family: "Montserrat", "Roboto", serif;
     padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .container-fluid {
     background-color: #2C3E50;
     font-size: 1.2em;
 }
-
+.headline {
+    color: black;
+}
+.home-tagline{
+    color: black;
+    text-align: left;
+    font-size: 1.5em;
+}
 .navbar {
     background-image: none;
 }
@@ -35,15 +43,15 @@ body {
     background-color: #2980B9;
     float: right;
     padding: 20px 20px 20px;
-    margin-right: 30px;
-    margin-top: 20px;
-    margin-left: 30px;
+/*    margin-right: 0px;*/
+/*    margin-top: 20px;*/
+/*    margin-left: 0px;*/
     border-radius: 10px;
 }
 
 .help-block {
     color: black;
-    font-size: 1.2em;
+    font-size: 0.9em;
 }
 
 .index-page {
@@ -368,4 +376,9 @@ li {
 }
 .img-center {
     margin: 0 auto;
+}
+.contact-form {
+    width: 75%;
+}
+.col-sm-8 {
 }

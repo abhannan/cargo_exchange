@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^terms-of-service/', views.terms_of_service, name='terms'),
     url(r'^about/', views.about_us, name='about_us'),
+    url(r'^contact-us/', views.contact_us, name='contact'),
 ]

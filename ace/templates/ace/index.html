@@ -14,13 +14,38 @@
 </header>
 
 <body class="index-page">
-    <form method="post" action="." class="form-home-page">
+    <html lang="en">
+
+<head>
+
+</head>
+
+<body class="about-page">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="headline">Your Online source for</h1>
+                <h2 class="home-tagline">Empty Charter Legs</h2>
+                <h2 class="home-tagline">Freight Inquiries</h2>
+                <h2 class="home-tagline">Aircraft Availability</h2>
+                <h2 class="home-tagline">Charter Requests</h2>
+            </div>
+            <div class="col-sm-4">
+                <form method="post" action="." class="form-home-page">
         <h2>Get started today!</h2>
         {% csrf_token %} {{ form|crispy }}
         <input type="submit" value="SIGN UP FOR FREE" class="btn btn-warning" />
         <p>By submitting this form, you agree to our <a class="terms-index" href="{% url 'terms' %}">Terms and Conditions</a></p>
     </form>
-    {% endblock content %}
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
+</body>
+
+</html>
+{% endblock content %}
