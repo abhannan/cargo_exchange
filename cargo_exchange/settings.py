@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@c@j+4_j@f_pfyv_01!w*h%ua6i&in5+et*!xbbgco4dpefa0l'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,9 +96,9 @@ WSGI_APPLICATION = 'cargo_exchange.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ace-db',
-        'USER': 'Hannan',
-        'PASSWORD': 'lahore@786',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 
@@ -155,11 +155,11 @@ REGISTRATION_AUTO_LOGIN = True
 # Email settings for emails to Users
 ACCOUNT_ACTIVATION_DAYS = 7
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'aircargoexchange@gmail.com'
-EMAIL_HOST_PASSWORD = 'makkah@786'
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
-EMAIL_PORT = 587
+EMAIL_PORT = 
 
 # Crispy forms settings
 CRISPY_TEMPLATE_PACK= 'bootstrap3'
